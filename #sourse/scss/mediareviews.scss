@@ -1,0 +1,904 @@
+@media screen and (max-width: 1200px){
+  .container{
+    width: 960px;
+  }
+
+  .header{
+    &__menu{
+      padding: 25px 70px;
+      .burger1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        &__btn{
+          position: relative;
+          width: 40px;
+          height: 3px;
+          background: $darkColor;
+          transition: .5s;
+          &:before, &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $darkColor;
+            transition: .5s;
+          }
+          &:before{
+            transform: translateY(-13px);
+          }
+          &:after{
+            transform: translateY(13px);
+          }
+        }
+      }
+      .close{
+        .burger1__btn{
+          transform: translateX(-40px);
+          background: transparent;
+          &:before{
+            transform: rotate(45deg) translate(28px, -28px);
+          }
+          &:after{
+            transform: rotate(-45deg) translate(28px, 28px);
+          }
+        }
+      }
+    }
+    &__logo{
+      width: 50px;
+    }
+    &__list{
+      display: none;
+    }
+    .burger2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: $basicColor;
+      padding: 70px 0;
+      transform: translateX(100%);
+      z-index: 90;
+      transition: .5s;
+      &__list{
+        li{
+          text-align: center;
+          margin-bottom: 30px;
+          &:last-child{
+            margin-bottom: 0;
+            a{
+              font-size: 50px;
+            }
+          }
+          a{
+            @include textStyle($darkColor, 37px, $fontText, 600, none, none, 0.1em);
+          }
+          .active{
+            color: brown;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    &__text{
+      font-size: 15px;
+      width: 50%;
+    }
+    &__button{
+      font-size: 50px;
+      bottom: 50px;
+    }
+  }
+
+  .review{
+    padding-bottom: 0;
+    &__begin, &__end{
+      width: 6px;
+    }
+    &__text{
+      width: 45%;
+      padding: 0 15px;
+      &:before{
+        top: 35px;
+        right: -17px;
+        border-top: 8px solid transparent;
+        border-left: 16px solid $darkColor;
+        border-bottom: 8px solid transparent;
+      }
+      &:last-child{
+        &:before{
+          border-right: 16px solid $darkColor;
+          left: -17px;
+        }
+      }
+      h3{
+        font-size: 18px;
+        margin-bottom: 12px;
+        span{
+          margin-left: 12px;
+        }
+      }
+      p{
+        font-size: 13px;
+      }
+    }
+    &__line{
+      width: 6px;
+      &:before, &:after{
+        width: 35px;
+        height: 35px;
+      }
+    }
+    &__btn{
+      display: none;
+    }
+    &__first{
+      height: 270px;
+      .review__text{
+        height: 160px;
+        &:last-child{
+          height: 110px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 46px;
+        }
+      }
+    }
+    &__second{
+      height: 355px;
+      .review__text{
+        height: 210px;
+        &:last-child{
+          height: 145px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 81px;
+        }
+      }
+    }
+    &__third{
+      height: 295px;
+      .review__text{
+        height: 115px;
+        &:last-child{
+          height: 180px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 116px;
+        }
+      }
+    }
+    &__fourth{
+      height: 355px;
+      .review__text{
+        height: 145px;
+        &:last-child{
+          height: 210px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 147px;
+        }
+      }
+    }
+  }
+
+  .popup{
+    display: none;
+  }
+
+  .window{
+    display: block;
+    padding: 50px 0;
+    background: $basicColor;
+    &__title{
+      margin-bottom: 40px;
+      @include textStyle($darkColor, 20px, $fontText, 700, uppercase, none, 0.15em);
+    }
+    .enter{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      &__label{
+        margin-bottom: 10px;
+        @include textStyle($darkColor, 17px, $fontText, 500, none, none, 0.1em);
+      }
+      &__input{
+        width: 100%;
+        height: 40px;
+        margin-bottom: 30px;
+        border: none;
+        padding: 0 10px;
+        @include textStyle($darkColor, 14px, consolas, 400, none, none, 0.1em);
+      }
+      &__textarea{
+        width: 100%;
+        height: 130px;
+        border: none;
+        padding: 10px;
+        @include textStyle($darkColor, 14px, consolas, 400, none, none, 0.1em);
+      }
+      &__btn{
+        align-self: center;
+        width: 140px;
+        height: 40px;
+        background: $darkColor;
+        border: none;
+        margin-top: 45px;
+        @include textStyle($lightColor, 14px, $fontText, 600, uppercase, none, 0.1em);
+      }
+    }
+  }
+
+  .footer{
+    padding: 100px 0;
+    &__text{
+      width: 350px;
+      h3{
+        font-size: 19px;
+      }
+      p{
+        margin-top: 20px;
+        font-size: 12px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+  .container{
+    width: 720px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 60px;
+    }
+    &__logo{
+      width: 45px;
+    }
+    .burger2{
+      padding: 60px 0;
+      &__list{
+        li{
+          margin-bottom: 25px;
+          &:last-child{
+            a{
+              font-size: 45px;
+            }
+          }
+          a{
+            @include textStyle($darkColor, 32px, $fontText, 600, none, none, 0.1em);
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 26px;
+      margin-bottom: 17px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 60%;
+    }
+    &__button{
+      font-size: 40px;
+      bottom: 30px;
+    }
+  }
+
+  .review{
+    &__begin, &__end{
+      width: 5px;
+    }
+    &__text{
+      width: 45%;
+      padding: 0 10px;
+      border-width: 1px;
+      &:before{
+        top: 35px;
+        right: -13px;
+        border-top: 6px solid transparent;
+        border-left: 12px solid $darkColor;
+        border-bottom: 6px solid transparent;
+      }
+      &:last-child{
+        &:before{
+          border-right: 12px solid $darkColor;
+          left: -13px;
+        }
+      }
+      h3{
+        font-size: 15px;
+        margin-bottom: 10px;
+        span{
+          margin-left: 10px;
+        }
+      }
+      p{
+        font-size: 11px;
+      }
+    }
+    &__line{
+      width: 5px;
+      &:before, &:after{
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &__first{
+      height: 245px;
+      .review__text{
+        height: 150px;
+        &:last-child{
+          height: 95px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 38px;
+        }
+      }
+    }
+    &__second{
+      height: 340px;
+      .review__text{
+        height: 205px;
+        &:last-child{
+          height: 135px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 78px;
+        }
+      }
+    }
+    &__third{
+      height: 275px;
+      .review__text{
+        height: 110px;
+        &:last-child{
+          height: 165px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 107px;
+        }
+      }
+    }
+    &__fourth{
+      height: 340px;
+      .review__text{
+        height: 135px;
+        &:last-child{
+          height: 205px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 27px;
+        }
+        &:after{
+          bottom: 147px;
+        }
+      }
+    }
+  }
+
+  .window{
+    padding: 50px 0;
+    &__title{
+      font-size: 18px;
+    }
+    .enter{
+      &__label{
+        font-size: 15px;
+      }
+      &__input{
+        font-size: 13px;
+      }
+      &__textarea{
+        font-size: 13px;
+      }
+      &__btn{
+        font-size: 13px;
+        width: 120px;
+        height: 36px;
+      }
+    }
+  }
+
+  .footer{
+    padding: 90px 0;
+    &__text{
+      width: 300px;
+      h3{
+        font-size: 18px;
+      }
+      p{
+        margin-top: 15px;
+        font-size: 11px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 14px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    width: 540px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 50px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 22px;
+          &:last-child{
+            a{
+              font-size: 42px;
+            }
+          }
+          a{
+            font-size: 30px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 68%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 27px;
+    }
+  }
+
+  .review{
+    &__begin, &__end{
+      width: 4px;
+      height: 60px;
+    }
+    &__text{
+      &:before{
+        top: 35px;
+        right: -11px;
+        border-top: 5px solid transparent;
+        border-left: 10px solid $darkColor;
+        border-bottom: 5px solid transparent;
+      }
+      &:last-child{
+        &:before{
+          border-right: 10px solid $darkColor;
+          left: -11px;
+        }
+      }
+      h3{
+        font-size: 13px;
+        margin-bottom: 6px;
+        span{
+          margin-left: 10px;
+        }
+      }
+      p{
+        font-size: 9.5px;
+      }
+    }
+    &__line{
+      width: 4px;
+      &:before, &:after{
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__first{
+      height: 220px;
+      .review__text{
+        height: 140px;
+        &:last-child{
+          height: 80px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 28px;
+        }
+        &:after{
+          bottom: 27px;
+        }
+      }
+    }
+    &__second{
+      height: 330px;
+      .review__text{
+        height: 200px;
+        &:last-child{
+          height: 130px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 28px;
+        }
+        &:after{
+          bottom: 76px;
+        }
+      }
+    }
+    &__third{
+      height: 250px;
+      .review__text{
+        height: 95px;
+        &:last-child{
+          height: 155px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 28px;
+        }
+        &:after{
+          bottom: 101px;
+        }
+      }
+    }
+    &__fourth{
+      height: 330px;
+      .review__text{
+        height: 130px;
+        &:last-child{
+          height: 200px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 28px;
+        }
+        &:after{
+          bottom: 147px;
+        }
+      }
+    }
+  }
+
+  .window{
+    padding: 40px 0;
+    &__title{
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    .enter{
+      &__label{
+        font-size: 13px;
+      }
+      &__input{
+        font-size: 11px;
+        padding: 0 8px;
+      }
+      &__textarea{
+        font-size: 11px;
+        padding: 8px;
+      }
+      &__btn{
+        margin-top: 35px;
+      }
+    }
+  }
+
+  .footer{
+    padding: 60px 0;
+    &__text{
+      width: 250px;
+      h3{
+        font-size: 13px;
+        font-weight: 500;
+      }
+      p{
+        margin-top: 10px;
+        font-size: 9px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px){
+  .container{
+    width: 90%;
+  }
+
+  .header{
+    &__menu{
+      padding: 15px 20px;
+    }
+    &__logo{
+      width: 40px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 15px;
+          &:last-child{
+            a{
+              font-size: 35px;
+            }
+          }
+          a{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 12px;
+      width: 100%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 30px;
+    }
+  }
+
+  .review{
+    &__begin, &__end{
+      width: 3px;
+      margin-right: 0;
+    }
+    .container{
+      >div{
+        flex-wrap: wrap;
+      }
+    }
+    &__text{
+      width: 90%;
+      padding: 0 10px;
+      &:before{
+        top: 30px;
+        right: -9px;
+        border-top: 4px solid transparent;
+        border-left: 8px solid $darkColor;
+        border-bottom: 4px solid transparent;
+      }
+      &:last-child{
+        &:before{
+          border-left: 8px solid $darkColor;
+          border-right: 0;
+          left: 100%;
+        }
+      }
+      h3{
+        font-size: 12px;
+        margin-bottom: 6px;
+        span{
+          margin-left: 8px;
+        }
+      }
+      p{
+        font-size: 9px;
+      }
+    }
+    &__line{
+      width: 3px;
+      &:before, &:after{
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &__first{
+      height: 230px;
+      .review__text{
+        height: 120px;
+        &:last-child{
+          height: 75px;
+          margin-top: -80px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 26px;
+        }
+        &:after{
+          bottom: 29px;
+        }
+      }
+    }
+    &__second{
+      height: 345px;
+      .review__text{
+        height: 165px;
+        &:nth-child(1){
+          margin-top: 35px;
+        }
+        &:last-child{
+          height: 110px;
+          margin-top: -110px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 60px;
+        }
+        &:after{
+          bottom: 65px;
+        }
+      }
+    }
+    &__third{
+      height: 295px;
+      .review__text{
+        height: 90px;
+        &:nth-child(1){
+          margin-top: 35px;
+        }
+        &:last-child{
+          height: 135px;
+          margin-top: -155px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 60px;
+        }
+        &:after{
+          bottom: 90px;
+        }
+      }
+    }
+    &__fourth{
+      height: 355px;
+      .review__text{
+        height: 115px;
+        &:nth-child(1){
+          margin-top: 35px;
+        }
+        &:last-child{
+          height: 170px;
+          margin-top: -175px;
+        }
+      }
+      .review__line{
+        &:before{
+          top: 60px;
+        }
+        &:after{
+          bottom: 125px;
+        }
+      }
+    }
+  }
+
+  .window{
+    padding: 30px 0;
+    &__title{
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .enter{
+      &__label{
+        font-size: 13px;
+      }
+      &__input{
+        font-size: 10px;
+        padding: 0 10px;
+      }
+      &__textarea{
+        font-size: 10px;
+        padding: 10px;
+      }
+      &__btn{
+        margin-top: 35px;
+        font-size: 11px;
+        width: 105px;
+        height: 34px;
+      }
+    }
+  }
+
+  .footer{
+    padding: 30px 0;
+    .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__text{
+      width: 245px;
+      margin-bottom: 30px;
+      p{
+        font-size: 8.5px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

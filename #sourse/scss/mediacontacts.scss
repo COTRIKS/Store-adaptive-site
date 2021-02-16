@@ -1,0 +1,553 @@
+@media screen and (max-width: 1200px){
+  .container{
+    width: 960px;
+  }
+
+  .header{
+    &__menu{
+      padding: 25px 70px;
+      .burger1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        &__btn{
+          position: relative;
+          width: 40px;
+          height: 3px;
+          background: $darkColor;
+          transition: .5s;
+          &:before, &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $darkColor;
+            transition: .5s;
+          }
+          &:before{
+            transform: translateY(-13px);
+          }
+          &:after{
+            transform: translateY(13px);
+          }
+        }
+      }
+      .close{
+        .burger1__btn{
+          transform: translateX(-40px);
+          background: transparent;
+          &:before{
+            transform: rotate(45deg) translate(28px, -28px);
+          }
+          &:after{
+            transform: rotate(-45deg) translate(28px, 28px);
+          }
+        }
+      }
+    }
+    &__logo{
+      width: 50px;
+    }
+    &__list{
+      display: none;
+    }
+    .burger2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: $basicColor;
+      padding: 70px 0;
+      transform: translateX(100%);
+      z-index: 90;
+      transition: .5s;
+      &__list{
+        li{
+          text-align: center;
+          margin-bottom: 30px;
+          &:last-child{
+            margin-bottom: 0;
+            a{
+              font-size: 50px;
+            }
+          }
+          a{
+            @include textStyle($darkColor, 37px, $fontText, 600, none, none, 0.1em);
+          }
+          .active{
+            color: brown;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    &__text{
+      font-size: 15px;
+      width: 50%;
+    }
+    &__button{
+      font-size: 50px;
+      bottom: 50px;
+    }
+  }
+
+  .address{
+    padding: 80px 0 70px;
+    &__theme{
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    &__text{
+      font-size: 13px;
+      margin-bottom: 60px;
+      padding-right: 80px;
+    }
+    .point{
+      margin-bottom: 25px;
+      &__icon{
+        width: 35px;
+        height: 35px;
+        font-size: 27px;
+        margin-right: 15px;
+      }
+      &__description{
+        font-size: 13px;
+      }
+      a{
+        font-size: 13px;
+        margin-left: 8px;
+      }
+    }
+    &__map{
+      height: 350px;
+      box-shadow: 6px 7px 13px rgba(58, 58, 58, 0.425);
+    }
+  }
+
+  .cards{
+    padding: 80px 0 50px;
+    .container{
+      .apps{
+        &:hover{
+          transform: translateY(-15px);
+        }
+        &__picture{
+          font-size: 50px;
+          margin-bottom: 25px;
+        }
+        &__theme{
+          font-size: 17px;
+          margin-bottom: 20px;
+        }
+        &__text{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .footer{
+    padding: 100px 0;
+    &__text{
+      width: 350px;
+      h3{
+        font-size: 19px;
+      }
+      p{
+        margin-top: 20px;
+        font-size: 12px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+  .container{
+    width: 720px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 60px;
+    }
+    &__logo{
+      width: 45px;
+    }
+    .burger2{
+      padding: 60px 0;
+      &__list{
+        li{
+          margin-bottom: 25px;
+          &:last-child{
+            a{
+              font-size: 45px;
+            }
+          }
+          a{
+            @include textStyle($darkColor, 32px, $fontText, 600, none, none, 0.1em);
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 26px;
+      margin-bottom: 17px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 60%;
+    }
+    &__button{
+      font-size: 40px;
+      bottom: 30px;
+    }
+  }
+
+  .address{
+    padding: 60px 0 50px;
+    &__theme{
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    &__text{
+      font-size: 11.5px;
+      margin-bottom: 45px;
+      padding-right: 60px;
+    }
+    .point{
+      margin-bottom: 20px;
+      &__icon{
+        width: 30px;
+        height: 30px;
+        font-size: 23px;
+        margin-right: 10px;
+      }
+      &__description{
+        font-size: 11.5px;
+      }
+      a{
+        font-size: 11.5px;
+        margin-left: 5px;
+      }
+    }
+    &__map{
+      height: 300px;
+      box-shadow: 4px 5px 10px rgba(58, 58, 58, 0.425);
+    }
+  }
+
+  .cards{
+    padding: 60px 0 40px;
+    .container{
+      .apps{
+        padding: 0 10px;
+        &:hover{
+          transform: translateY(-10px);
+        }
+        &__picture{
+          font-size: 40px;
+          margin-bottom: 20px;
+        }
+        &__theme{
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+        &__text{
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  .footer{
+    padding: 90px 0;
+    &__text{
+      width: 300px;
+      h3{
+        font-size: 18px;
+      }
+      p{
+        margin-top: 15px;
+        font-size: 11px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 14px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    width: 540px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 50px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 22px;
+          &:last-child{
+            a{
+              font-size: 42px;
+            }
+          }
+          a{
+            font-size: 30px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 68%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 27px;
+    }
+  }
+
+  .address{
+    padding: 40px 0 40px;
+    .container{
+      flex-direction: column;
+    }
+    &__block{
+      width: 100%;
+    }
+    &__theme{
+      font-size: 19px;
+    }
+    &__text{
+      font-size: 12px;
+      padding-right: 0;
+    }
+    .point{
+      &__icon{
+        font-size: 25px;
+      }
+      &__description{
+        font-size: 12px;
+      }
+      a{
+        font-size: 12px;
+        margin-left: 7px;
+      }
+    }
+    &__map{
+      margin-top: 40px;
+      width: 100%;
+      height: 300px;
+      box-shadow: 3px 4px 8px rgba(58, 58, 58, 0.425);
+    }
+  }
+
+  .cards{
+    padding: 40px 0 30px;
+    .container{
+      .apps{
+        &:hover{
+          transform: translateY(-10px);
+        }
+        &__picture{
+          font-size: 30px;
+          margin-bottom: 15px;
+        }
+        &__theme{
+          font-size: 10px;
+          margin-bottom: 10px;
+        }
+        &__text{
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  .footer{
+    padding: 60px 0;
+    &__text{
+      width: 250px;
+      h3{
+        font-size: 13px;
+        font-weight: 500;
+      }
+      p{
+        margin-top: 10px;
+        font-size: 9px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px){
+  .container{
+    width: 90%;
+  }
+
+  .header{
+    &__menu{
+      padding: 15px 20px;
+    }
+    &__logo{
+      width: 40px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 15px;
+          &:last-child{
+            a{
+              font-size: 35px;
+            }
+          }
+          a{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 12px;
+      width: 100%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 30px;
+    }
+  }
+
+  .address{
+    padding: 30px 0 30px;
+    &__block{
+      text-align: center;
+    }
+    &__theme{
+      font-size: 15px;
+      margin-bottom: 17px;
+    }
+    &__text{
+      font-size: 12px;
+      margin-bottom: 35px;
+    }
+    .point{
+      justify-content: center;
+      &__icon{
+        width: 20px;
+        height: 20px;
+        font-size: 18px;
+        margin-right: 8px;
+      }
+    }
+    &__map{
+      margin-top: 30px;
+      height: 200px;
+      box-shadow: 2px 3px 5px rgba(58, 58, 58, 0.425);
+    }
+  }
+
+  .cards{
+    padding: 20px 0 20px;
+    .container{
+      flex-wrap: wrap;
+      .apps{
+        width: 50%;
+        padding: 0 7px;
+        transition: initial;
+        &:nth-child(1), &:nth-child(2){
+          margin-bottom: 20px;
+        }
+        &:hover{
+          transform: translateY(0);
+        }
+        &__picture{
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+        &__theme{
+          font-size: 10px;
+          margin-bottom: 8px;
+        }
+        &__text{
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  .footer{
+    padding: 30px 0;
+    .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__text{
+      width: 245px;
+      margin-bottom: 30px;
+      p{
+        font-size: 8.5px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

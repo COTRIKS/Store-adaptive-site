@@ -1,0 +1,452 @@
+// Подключение нулевых стилей
+@import "nullstyle.scss";
+
+// Шрифты
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+// Переменные с цветами и шрифтами
+$lightColor: white;
+$darkColor: black;
+$basicColor: #aa9b77;
+
+$fontText: 'Quicksand', sans-serif;
+
+// Миксин для работы с текстом
+@mixin textStyle($c, $fs, $ff, $fw, $tt, $td, $ls) {
+  color: $c;
+  font-size: $fs;
+  font-family: $ff;
+  font-weight: $fw;
+  text-transform: $tt;
+  text-decoration: $td;
+  letter-spacing: $ls;
+}
+
+// Общие стили
+body{
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.scrollY{
+  overflow-y: auto;
+}
+
+.container{
+  width: 1170px;
+  margin: 0 auto;
+}
+
+// Прелоадер
+.preloader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  transition: 1s;
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: $lightColor;
+    transition: 1s;
+  }
+  &:before{
+    left: 0;
+  }
+  &:after{
+    right: 0;
+  }
+  .loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: $lightColor;
+    border: 3px solid $basicColor;
+    animation: loadAnim 2s linear infinite;
+    z-index: 1100;
+    transition: .5s;
+    &:before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: $basicColor;
+      animation: loadAnimBg 2s linear infinite;
+    }
+  }
+}
+
+.complete{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  &:before{
+    left: -50%;
+  }
+  &:after{
+    right: -50%;
+  }
+}
+
+// Шапка
+.header{
+  background: url(../img/header-bg.webp) center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  &__menu{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 30px 100px;
+    transition: background .5s;
+    z-index: 100;
+    .burger1{
+      display: none;
+    }
+  }
+  &__logo{
+    width: 60px;
+  }
+  &__list{
+    display: flex;
+    align-items: center;
+    li{
+      margin-right: 40px;
+      &:last-child{
+        margin-right: 0;
+        a{
+          font-size: 25px;
+        }
+      }
+      a{
+        @include textStyle($lightColor, 17px, $fontText, 600, none, none, 0.1em);
+        transition: color .4s;
+        &:hover{
+          color: $basicColor;
+        }
+      }
+    }
+  }
+  .scrollMenu{
+    background: $basicColor;
+    .header__list{
+      li{
+        a{
+          &:hover{
+            color: $darkColor;
+          }
+        }
+      }
+    }
+  }
+  .burger2{
+    display: none;
+  }
+  &__entry{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  &__title{
+    @include textStyle($lightColor, 42px, $fontText, 600, none, none, 0.15em);
+    margin-bottom: 30px;
+  }
+  &__text{
+    @include textStyle($lightColor, 17px, $fontText, 300, none, none, 0.1em);
+    line-height: 1.3em;
+    width: 45%;
+    text-align: center;
+  }
+  &__button{
+    @include textStyle($lightColor, 60px, $fontText, 600, none, none, 0.1em);
+    position: absolute;
+    bottom: 80px;
+  }
+}
+
+// Форма - выбор
+.change{
+  background: #f5f6f7;
+  padding: 60px 0;
+  &__form{
+    display: flex;
+    justify-content: space-between;
+    .option{
+      display: flex;
+      &__first, &__second, &__third{
+        display: flex;
+        align-items: center;
+      }
+      &__select{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border: 2px solid $basicColor;
+        appearance: none;
+        cursor: pointer;
+        &:before{
+          content: '';
+          position: absolute;
+          width: 60%;
+          height: 60%;
+          background: $basicColor;
+          display: none;
+        }
+        &:checked:before{
+          display: flex;
+        }
+      }
+      &__label{
+        margin-right: 40px;
+        @include textStyle($darkColor, 19px, $fontText, 600, uppercase, none, 0.1em);
+      }
+      &__third{
+        label{
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &__btn{
+    width: 190px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $basicColor;
+    @include textStyle($lightColor, 13px, $fontText, 600, uppercase, none, 0.1em);
+  }
+}
+
+// Товары
+.products{
+  padding: 40px 0 80px;
+  &__men, &__women, &__children{
+    padding-top: 70px;
+    .selection{
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      &__name {
+        margin-right: 30px;
+        @include textStyle($darkColor, 15px, $fontText, 600, uppercase, none, 0);
+        &:nth-child(2){
+          margin-left: 30px;
+          margin-right: 0;
+        }
+      }
+      hr{
+        width: 100%;
+        height: 3px;
+        background: #ccc;
+        color: #ccc;
+        border: inherit;
+      }
+    }
+    .slider{
+      position: relative;
+      .slick-list{
+        overflow: hidden;
+      }
+      .slick-track{
+        display: flex;
+        padding: 55px 0;
+      }
+      .slick-arrow{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        font-size: 0;
+        width: 17px;
+        height: 17px;
+        border: inherit;
+      }
+      .slick-prev{
+        margin-right: 20px;
+        background: url(../img/prev.svg) center no-repeat;
+        background-size: cover;
+      }
+      .slick-next{
+        background: url(../img/next.svg) center no-repeat;
+        background-size: cover;
+      }
+      &__block{
+        background: #f5f6f7;
+        margin: 0 auto;
+        padding: 30px 25px;
+        width: 300px;
+        &:hover{
+          border: 3px solid $basicColor;
+        }
+        .foto{
+          max-width: 100%;
+          margin-bottom: 20px;
+        }
+        .info{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &__name{
+            @include textStyle($basicColor, 17px, $fontText, 600, uppercase, none, 0);
+          }
+          &__cost{
+            @include textStyle($darkColor, 17px, $fontText, 600, none, none, 0.1em);
+          }
+        }
+      }
+    }
+  }
+  &__women{
+    .slider{
+      .slick-arrow{
+        left: 0;
+      }
+      .slick-prev{
+        margin-right: 0;
+      }
+      .slick-next{
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+// О нас
+.about{
+  background: $basicColor;
+  padding: 70px 0;
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__theme {
+    margin-bottom: -8.3px;
+    padding: 0 5px;
+    background: $basicColor;
+    display: inline-block;
+    @include textStyle(#7a6e53, 17px, $fontText, 600, uppercase, none, 0);
+    z-index: 1;
+  }
+  &__block{
+    width: 75%;
+    height: 220px;
+    margin: 0 auto;
+    border: 1px solid #918363;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+  }
+  &__text{
+    text-align: center;
+    @include textStyle($darkColor, 15px, $fontText, 500, none, none, 0.1em);
+    line-height: 1.3em;
+  }
+}
+
+// Подвал
+.footer{
+  background: #424242;
+  padding: 110px 0;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text{
+    width: 350px;
+    h3{
+      display: inline-block;
+      @include textStyle($lightColor, 20px, $fontText, 600, none, none, 0.1em);
+    }
+    p{
+      margin-top: 25px;
+      @include textStyle($lightColor, 13px, $fontText, 300, none, none, 0.15em);
+      line-height: 1.4em;
+    }
+  }
+  &__info{
+    display: flex;
+    flex-direction: column;
+    p{
+      display: inline-block;
+      @include textStyle($lightColor, 17px, $fontText, 500, uppercase, none, 0.1em);
+      a{
+        color: $lightColor;
+        transition: .5s;
+        &:hover{
+          color: $basicColor;
+        }
+      }
+      &:last-child{
+        margin-top: 20px;
+        text-transform: inherit;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Анимации
+@keyframes loadAnim{
+  0%{
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  25%{
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  50%{
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes loadAnimBg{
+  0%{
+    height: 0;
+  }
+  25%{
+    height: 0;
+  }
+  50%{
+    height: 100%;
+  }
+  75%{
+    height: 100%;
+  }
+  100%{
+    height: 0;
+  }
+}
+
+// Подключение стилей для адаптации
+@import "mediastyle.scss";

@@ -1,0 +1,549 @@
+/* Отзывчивость */
+@media screen and (max-width: 1200px){
+  .container{
+    width: 960px;
+  }
+
+  .header{
+    &__menu{
+      padding: 25px 70px;
+      .burger1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        &__btn{
+          position: relative;
+          width: 40px;
+          height: 3px;
+          background: $lightColor;
+          transition: .5s;
+          &:before, &:after{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $lightColor;
+            transition: .5s;
+          }
+          &:before{
+            transform: translateY(-13px);
+          }
+          &:after{
+            transform: translateY(13px);
+          }
+        }
+      }
+      .close{
+        .burger1__btn{
+          transform: translateX(-40px);
+          background: transparent;
+          &:before{
+            transform: rotate(45deg) translate(28px, -28px);
+          }
+          &:after{
+            transform: rotate(-45deg) translate(28px, 28px);
+          }
+        }
+      }
+    }
+    &__logo{
+      width: 50px;
+    }
+    &__list{
+      display: none;
+    }
+    .burger2{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: $basicColor;
+      padding: 70px 0;
+      transform: translateX(100%);
+      z-index: 90;
+      transition: .5s;
+      &__list{
+        li{
+          text-align: center;
+          margin-bottom: 30px;
+          &:last-child{
+            margin-bottom: 0;
+            a{
+              font-size: 50px;
+            }
+          }
+          a{
+            @include textStyle($lightColor, 37px, $fontText, 600, none, none, 0.1em);
+          }
+          .active{
+            color: brown;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    &__text{
+      font-size: 15px;
+      width: 50%;
+    }
+    &__button{
+      font-size: 50px;
+      bottom: 50px;
+    }
+  }
+
+  .change{
+    padding: 50px 0;
+    &__form{
+      .option{
+        &__select{
+          width: 20px;
+          height: 20px;
+        }
+        &__label{
+          margin-right: 30px;
+          font-size: 17px;
+        }
+      }
+    }
+    &__btn{
+      width: 180px;
+      height: 50px;
+      font-size: 12px;
+    }
+  }
+
+  .products{
+    padding: 40px 0 60px;
+    &__men, &__women, &__children{
+      padding-top: 50px;
+      .selection{
+        margin-bottom: 30px;
+      }
+      .slider{
+        &__block{
+          width: 270px;
+          padding: 25px 20px;
+        }
+      }
+    }
+  }
+
+  .footer{
+    padding: 100px 0;
+    &__text{
+      width: 350px;
+      h3{
+        font-size: 19px;
+      }
+      p{
+        margin-top: 20px;
+        font-size: 12px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px){
+  .container{
+    width: 720px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 60px;
+    }
+    &__logo{
+      width: 45px;
+    }
+    .burger2{
+      padding: 60px 0;
+      &__list{
+        li{
+          margin-bottom: 25px;
+          &:last-child{
+            a{
+              font-size: 45px;
+            }
+          }
+          a{
+            @include textStyle($lightColor, 32px, $fontText, 600, none, none, 0.1em);
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 26px;
+      margin-bottom: 17px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 60%;
+    }
+    &__button{
+      font-size: 40px;
+      bottom: 30px;
+    }
+  }
+
+  .change{
+    padding: 40px 0;
+    &__form{
+      .option{
+        &__select{
+          width: 17px;
+          height: 17px;
+          margin-right: 7px;
+        }
+        &__label{
+          margin-right: 25px;
+          font-size: 15px;
+        }
+      }
+    }
+    &__btn{
+      width: 150px;
+      height: 40px;
+      font-size: 11px;
+    }
+  }
+
+  .products{
+    padding: 40px 0 50px;
+    &__men, &__women, &__children{
+      padding-top: 30px;
+      .slider{
+        &__block{
+          .info{
+            &__name{
+              font-size: 15px;
+            }
+            &__cost{
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about{
+    padding: 60px 0;
+    &__theme {
+      font-size: 15px;
+    }
+    &__block{
+      width: 75%;
+      height: 200px;
+      padding: 0 80px;
+    }
+    &__text{
+      font-size: 13px;
+    }
+  }
+
+  .footer{
+    padding: 90px 0;
+    &__text{
+      width: 300px;
+      h3{
+        font-size: 18px;
+      }
+      p{
+        margin-top: 15px;
+        font-size: 11px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 14px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container{
+    width: 540px;
+  }
+
+  .header{
+    &__menu{
+      padding: 20px 50px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 22px;
+          &:last-child{
+            a{
+              font-size: 42px;
+            }
+          }
+          a{
+            font-size: 30px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 14px;
+      width: 68%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 27px;
+    }
+  }
+
+  .change{
+    padding: 30px 0;
+    &__form{
+      .option{
+        &__select{
+          width: 14px;
+          height: 14px;
+        }
+        &__label{
+          margin-right: 22px;
+          font-size: 13px;
+        }
+      }
+    }
+    &__btn{
+      width: 140px;
+      height: 35px;
+      font-size: 9.5px;
+    }
+  }
+
+  .products{
+    padding: 40px 0 30px;
+    &__men, &__women, &__children{
+      padding-top: 20px;
+      .selection{
+        margin-bottom: 25px;
+        &__name {
+          margin-right: 15px;
+          font-size: 13px;
+          &:nth-child(2){
+            margin-left: 15px;
+            margin-right: 0;
+          }
+        }
+        hr{
+          height: 2px;
+        }
+      }
+      .slider{
+        .slick-track{
+          padding: 45px 0;
+        }
+        &__block{
+          width: 230px;
+          padding: 20px 15px;
+          .info{
+            &__name{
+              font-size: 13px;
+            }
+            &__cost{
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .about{
+    padding: 50px 0;
+    &__theme {
+      font-size: 14px;
+    }
+    &__block{
+      width: 80%;
+      height: 160px;
+      padding: 0 50px;
+    }
+    &__text{
+      font-size: 11px;
+    }
+  }
+
+  .footer{
+    padding: 60px 0;
+    &__text{
+      width: 250px;
+      h3{
+        font-size: 13px;
+        font-weight: 500;
+      }
+      p{
+        margin-top: 10px;
+        font-size: 9px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px){
+  .container{
+    width: 90%;
+  }
+
+  .header{
+    &__menu{
+      padding: 15px 20px;
+    }
+    &__logo{
+      width: 40px;
+    }
+    .burger2{
+      &__list{
+        li{
+          margin-bottom: 15px;
+          &:last-child{
+            a{
+              font-size: 35px;
+            }
+          }
+          a{
+            font-size: 25px;
+          }
+        }
+      }
+    }
+    &__title{
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    &__text{
+      font-size: 12px;
+      width: 100%;
+    }
+    &__button{
+      font-size: 35px;
+      bottom: 30px;
+    }
+  }
+
+  .change{
+    padding: 40px 0;
+    &__form{
+      flex-direction: column;
+      align-items: center;
+      .option{
+        margin-bottom: 30px;
+      }
+    }
+    &__btn{
+      width: 150px;
+      height: 35px;
+      font-size: 10px;
+    }
+  }
+
+  .products{
+    padding: 20px 0 20px;
+    &__men, &__women, &__children{
+      padding-top: 20px;
+      .selection{
+        margin-bottom: 5px;
+        &__name {
+          margin-right: 10px;
+          font-size: 12px;
+          &:nth-child(2){
+            margin-left: 10px;
+            margin-right: 0;
+          }
+        }
+      }
+      .slider{
+        .slick-track{
+          padding: 30px 0;
+        }
+      }
+    }
+  }
+
+  .about{
+    padding: 40px 0;
+    &__theme {
+      font-size: 13px;
+    }
+    &__block{
+      width: 90%;
+      height: 140px;
+      padding: 0 20px;
+    }
+    &__text{
+      font-size: 10px;
+    }
+  }
+
+  .footer{
+    padding: 30px 0;
+    .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__text{
+      width: 245px;
+      margin-bottom: 30px;
+      p{
+        font-size: 8.5px;
+      }
+    }
+    &__info{
+      p{
+        font-size: 11px;
+        font-weight: 400;
+        &:last-child{
+          margin-top: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
